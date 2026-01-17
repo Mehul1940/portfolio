@@ -1,12 +1,25 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './globals.css';
 
 export default function Portfolio() {
   const particlesRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+      // Close menu on resize to desktop
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false);
+      }
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Create particles
     if (particlesRef.current) {
       for (let i = 0; i < 40; i++) {
@@ -43,7 +56,7 @@ export default function Portfolio() {
         observer.observe(el);
       });
 
-    // Smooth scroll
+    // Smooth scroll and close menu on navigation
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
         const target = e.currentTarget as HTMLAnchorElement;
@@ -51,6 +64,10 @@ export default function Portfolio() {
 
         if (href && href !== '#') {
           e.preventDefault();
+          
+          // Close mobile menu
+          setIsMenuOpen(false);
+          
           const section = document.querySelector(href);
           if (section) {
             section.scrollIntoView({
@@ -62,9 +79,10 @@ export default function Portfolio() {
       });
     });
 
-
-    // Mouse tracking for doll parallax
+    // Mouse tracking for doll parallax (only on larger screens)
     const handleMouseMove = (e: MouseEvent) => {
+      if (isMobile) return; // Disable on mobile
+
       const doll = document.querySelector('.space-doll') as HTMLElement;
       if (doll) {
         const x = (e.clientX / window.innerWidth - 0.5) * 50;
@@ -75,13 +93,26 @@ export default function Portfolio() {
       }
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    if (!isMobile) {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', checkMobile);
       observer.disconnect();
     };
-  }, []);
+  }, [isMobile]);
+
+  // Toggle menu handler
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Close menu on link click
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <>
@@ -98,6 +129,8 @@ export default function Portfolio() {
       <nav>
         <div className="container">
           <div className="logo">Bokade</div>
+          
+          {/* Desktop Navigation */}
           <ul>
             <li>
               <a href="#story">Story</a>
@@ -112,7 +145,37 @@ export default function Portfolio() {
               <a href="#contact">Contact</a>
             </li>
           </ul>
+
+          {/* Hamburger Menu Button */}
+          <button 
+            className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
+          <div className={`mobile-menu ${isMenuOpen ? 'show' : 'hidden'}`}>
+            <li>
+              <a href="#story" onClick={handleNavClick}>Story</a>
+            </li>
+            <li>
+              <a href="#projects" onClick={handleNavClick}>Projects</a>
+            </li>
+            <li>
+              <a href="#skills" onClick={handleNavClick}>Skills</a>
+            </li>
+            <li>
+              <a href="#contact" onClick={handleNavClick}>Contact</a>
+            </li>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section - Doll Left, Content Right */}
