@@ -180,43 +180,45 @@ export default function Portfolio() {
 
       {/* Hero Section - Doll Left, Content Right */}
       <section className="hero">
-        {/* 3D Space Character on Left */}
-        <div className="hero-visual">
-          <div className="doll-aura"></div>
-          <div className="space-doll">
-            {/* Head */}
-            <div className="doll-head">
-              <div className="doll-eye doll-eye-left"></div>
-              <div className="doll-eye doll-eye-right"></div>
-              <div className="doll-mouth"></div>
-            </div>
+        {/* 3D Space Character on Left - Hidden on Mobile */}
+        {!isMobile && (
+          <div className="hero-visual">
+            <div className="doll-aura"></div>
+            <div className="space-doll">
+              {/* Head */}
+              <div className="doll-head">
+                <div className="doll-eye doll-eye-left"></div>
+                <div className="doll-eye doll-eye-right"></div>
+                <div className="doll-mouth"></div>
+              </div>
 
-            {/* Body */}
-            <div className="doll-body">
-              <div className="doll-chest-light"></div>
-            </div>
+              {/* Body */}
+              <div className="doll-body">
+                <div className="doll-chest-light"></div>
+              </div>
 
-            {/* Left Arm */}
-            <div className="doll-arm doll-arm-left">
-              <div className="doll-hand"></div>
-            </div>
+              {/* Left Arm */}
+              <div className="doll-arm doll-arm-left">
+                <div className="doll-hand"></div>
+              </div>
 
-            {/* Right Arm */}
-            <div className="doll-arm doll-arm-right">
-              <div className="doll-hand"></div>
-            </div>
+              {/* Right Arm */}
+              <div className="doll-arm doll-arm-right">
+                <div className="doll-hand"></div>
+              </div>
 
-            {/* Left Leg */}
-            <div className="doll-leg doll-leg-left">
-              <div className="doll-foot"></div>
-            </div>
+              {/* Left Leg */}
+              <div className="doll-leg doll-leg-left">
+                <div className="doll-foot"></div>
+              </div>
 
-            {/* Right Leg */}
-            <div className="doll-leg doll-leg-right">
-              <div className="doll-foot"></div>
+              {/* Right Leg */}
+              <div className="doll-leg doll-leg-right">
+                <div className="doll-foot"></div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Content on Right */}
         <div className="hero-content">
