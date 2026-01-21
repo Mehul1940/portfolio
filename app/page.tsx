@@ -1,3 +1,4 @@
+// page.tsx (updated)
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -114,6 +115,16 @@ export default function Portfolio() {
     setIsMenuOpen(false);
   };
 
+  // Download CV handler
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/CV.pdf'; // Make sure CV.pdf is in your public folder
+    link.download = 'Bokade_Mehul_Full_Stack_Developer_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       {/* Enhanced Anime Background */}
@@ -144,6 +155,15 @@ export default function Portfolio() {
             <li>
               <a href="#contact">Contact</a>
             </li>
+            <li>
+              <button 
+                onClick={handleDownloadCV}
+                className="nav-cv-button"
+                aria-label="Download CV"
+              >
+                Download CV
+              </button>
+            </li>
           </ul>
 
           {/* Hamburger Menu Button */}
@@ -173,6 +193,18 @@ export default function Portfolio() {
             </li>
             <li>
               <a href="#contact" onClick={handleNavClick}>Contact</a>
+            </li>
+            <li>
+              <button 
+                onClick={() => {
+                  handleDownloadCV();
+                  handleNavClick();
+                }}
+                className="mobile-cv-button"
+                aria-label="Download CV"
+              >
+                📄 Download CV
+              </button>
             </li>
           </div>
         )}
@@ -225,9 +257,13 @@ export default function Portfolio() {
           <div className="hero-subtitle">Welcome to my world</div>
 
           <h1>
+            <span>Bokade</span>
+            <span>Mehul</span>
+          </h1>
+          <h2>
             <span>Full Stack</span>
             <span>Developer</span>
-          </h1>
+          </h2>
           <p>
             Crafting elegant solutions to complex problems. Specializing in backend
             architecture, real-time systems, and intelligent automation that creates
@@ -240,128 +276,243 @@ export default function Portfolio() {
             <a href="#contact" className="btn btn-secondary">
               Get in Touch
             </a>
+            <button 
+              onClick={handleDownloadCV}
+              className="btn btn-tertiary"
+              aria-label="Download CV"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download CV
+            </button>
+          </div>
+          <div className="hero-social">
+            <a href="mailto:bokdemehul870@gmail.com" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="https://github.com/Mehul1940" target="_blank" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 
+                0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466
+                -.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832
+                .092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951
+                0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.646
+                0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844
+                c.85.004 1.705.115 2.504.337
+                1.909-1.296 2.747-1.026 2.747-1.026
+                .546 1.376.202 2.393.1 2.646
+                .64.7 1.028 1.595 1.028 2.688
+                0 3.848-2.339 4.695-4.566 4.943
+                .359.309.678.92.678 1.855
+                0 1.338-.012 2.419-.012 2.747
+                0 .268.18.58.688.482
+                A10.019 10.019 0 0 0 22 12.017
+                C22 6.484 17.523 2 12 2z"/>
+              </svg>
+            </a>
+
+            <a href="https://linkedin.com/in/Mehul1940" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
       <div className="container">
-        {/* Story Section */}
+        {/* Story Section (Experience) */}
         <section id="story" className="story-section">
-          <h2 className="section-title">My Developer Journey</h2>
+          <h2 className="section-title">My Journey</h2>
 
           <div className="story-grid">
             <div className="story-card">
               <div className="story-number">01</div>
-              <div className="story-date">2022 – 2025</div>
-              <h3 className="story-title">Foundation</h3>
+              <div className="story-date">May 2025 – Present</div>
+              <h3 className="story-title">Full Stack Developer</h3>
+              <div className="story-subtitle">SaltRiver Infosystems Pvt Ltd</div>
               <p className="story-description">
-                Started with BCA from Gujarat University. Built foundations in computer
-                science, programming paradigms, data structures, and system design
-                principles.
+                Currently working as a Full Stack Developer, building mission-critical systems
+                for railways and smart cities. Developing enterprise-grade solutions with
+                secure authentication, multi-level approval workflows, and real-time
+                monitoring capabilities.
               </p>
+              <div className="story-tech">
+                <span>Flask</span>
+                <span>SQLAlchemy</span>
+                <span>Next.js</span>
+                <span>Django REST</span>
+                <span>Python</span>
+              </div>
             </div>
 
             <div className="story-card">
               <div className="story-number">02</div>
-              <div className="story-date">May 2025 – Present</div>
-              <h3 className="story-title">Real-World Impact</h3>
+              <div className="story-date">2022 – 2025</div>
+              <h3 className="story-title">Academic Foundation</h3>
+              <div className="story-subtitle">BCA Graduate</div>
               <p className="story-description">
-                Joined SaltRiver Infosystem as Full Stack Developer. Working on
-                mission-critical systems impacting railways, smart cities, and
-                infrastructure.
+                Completed Bachelor of Computer Applications with a focus on computer science
+                fundamentals, programming paradigms, data structures, and system design
+                principles. Built strong foundations in software development and problem-solving.
               </p>
+              <div className="story-tech">
+                <span>Core CS</span>
+                <span>Data Structures</span>
+                <span>System Design</span>
+                <span>Programming</span>
+              </div>
             </div>
 
             <div className="story-card">
               <div className="story-number">03</div>
               <div className="story-date">2025 – 2027</div>
               <h3 className="story-title">Continuous Growth</h3>
+              <div className="story-subtitle">MCA Student</div>
               <p className="story-description">
-                Pursuing Master&apos;s in Computer Applications. Focused on mastering
-                system architecture, cloud technologies, and emerging development
-                paradigms.
+                Pursuing Master's in Computer Applications to deepen expertise in system
+                architecture, cloud technologies, and emerging development paradigms.
+                Focusing on advanced concepts to build scalable and efficient systems.
               </p>
+              <div className="story-tech">
+                <span>System Architecture</span>
+                <span>Cloud Technologies</span>
+                <span>Advanced Development</span>
+                <span>Scalable Systems</span>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Projects Section */}
         <section id="projects" className="projects-section">
-          <h2 className="section-title">Featured Projects</h2>
+          <h2 className="section-title">My Projects</h2>
 
           <div className="projects-container">
-            {/* Railway Project */}
+            {/* Society Management System */}
             <div className="project">
               <div className="project-visual">
-                <div className="project-icon">🚂</div>
+                <div className="project-icon">🏘️</div>
               </div>
               <div className="project-content">
-                <h3>Railway Management System</h3>
+                <h3>Society Management System</h3>
                 <p>
-                  Comprehensive backend system for managing railway operations and
-                  drawing documentation with enterprise-grade security and multi-level
-                  approval workflows.
+                  A comprehensive full-stack platform for managing residential societies with features for
+                  resident management, maintenance tracking, fee collection, and visitor management.
+                  Includes role-based authentication for admins, residents, and staff.
                 </p>
 
                 <div className="challenge-box">
                   <strong>Challenge</strong>
                   <p>
-                    Design system handling complex approval hierarchies (L1–L3) with
-                    audit trails and compliance requirements.
+                    Create a centralized system for society operations with secure access control,
+                    financial tracking, and automated notifications for transparent operations.
                   </p>
                 </div>
 
                 <div className="challenge-box">
                   <strong>Solution</strong>
                   <p>
-                    Built Flask + SQLAlchemy architecture with normalized data models,
-                    PDF generation, versioning, and secure authentication.
+                    Developed a Django-based application with JavaScript frontend and MySQL database.
+                    Implemented automated notifications, financial reports, and secure role-based
+                    authentication for different user types.
                   </p>
                 </div>
 
                 <div className="tech-list">
-                  <span className="tech-tag">Flask</span>
-                  <span className="tech-tag">SQLAlchemy</span>
-                  <span className="tech-tag">PostgreSQL</span>
-                  <span className="tech-tag">Python</span>
+                  <span className="tech-tag">Django</span>
+                  <span className="tech-tag">JavaScript</span>
+                  <span className="tech-tag">MySQL</span>
+                  <span className="tech-tag">Role-based Auth</span>
+                  <span className="tech-tag">Automation</span>
                 </div>
               </div>
             </div>
 
-            {/* City Monitoring Project */}
+            {/* Restaurant Management System */}
             <div className="project">
               <div className="project-visual">
-                <div className="project-icon">🏙️</div>
+                <div className="project-icon">🍽️</div>
               </div>
               <div className="project-content">
-                <h3>Smart City Monitoring</h3>
+                <h3>FlavorFiesta - Restaurant Management</h3>
                 <p>
-                  Real-time infrastructure monitoring system that automatically detects
-                  urban hazards, road damage, and maintenance issues using AI-powered
-                  computer vision.
+                  Full-stack restaurant platform with dynamic menu management, order processing,
+                  and comprehensive admin controls. Streamlines restaurant operations from
+                  order taking to inventory management.
                 </p>
 
                 <div className="challenge-box">
                   <strong>Challenge</strong>
                   <p>
-                    Create real-time detection system identifying multiple hazard types
-                    simultaneously with sub-100ms latency.
+                    Design an intuitive system for restaurant management that handles dynamic
+                    menu updates, real-time order processing, and efficient inventory tracking.
                   </p>
                 </div>
 
                 <div className="challenge-box">
                   <strong>Solution</strong>
                   <p>
-                    Integrated YOLO object detection with Next.js frontend and Django
-                    REST API backend for seamless real-time monitoring.
+                    Built using Django backend with JavaScript frontend for seamless user experience.
+                    Implemented real-time order updates, menu customization, and comprehensive
+                    admin dashboard for restaurant management.
                   </p>
                 </div>
 
                 <div className="tech-list">
-                  <span className="tech-tag">Next.js</span>
-                  <span className="tech-tag">Django REST</span>
-                  <span className="tech-tag">YOLO</span>
+                  <span className="tech-tag">Django</span>
+                  <span className="tech-tag">JavaScript</span>
                   <span className="tech-tag">Python</span>
+                  <span className="tech-tag">Real-time</span>
+                  <span className="tech-tag">Admin Controls</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Ecommerce Site */}
+            <div className="project">
+              <div className="project-visual">
+                <div className="project-icon">🛒</div>
+              </div>
+              <div className="project-content">
+                <h3>Relevance - Ecommerce Platform</h3>
+                <p>
+                  Laravel-based ecommerce web application with user registration, authentication,
+                  and core ecommerce functionality. Features include product catalog, shopping cart,
+                  and user management system.
+                </p>
+
+                <div className="challenge-box">
+                  <strong>Challenge</strong>
+                  <p>
+                    Develop a robust ecommerce platform with secure user authentication,
+                    product management, and smooth shopping experience.
+                  </p>
+                </div>
+
+                <div className="challenge-box">
+                  <strong>Solution</strong>
+                  <p>
+                    Created a Laravel application with PHP, JavaScript, and MySQL database.
+                    Implemented secure authentication, product catalog management, and
+                    essential ecommerce pages including Home, About, Services, and Contact.
+                  </p>
+                </div>
+
+                <div className="tech-list">
+                  <span className="tech-tag">Laravel</span>
+                  <span className="tech-tag">PHP</span>
+                  <span className="tech-tag">JavaScript</span>
+                  <span className="tech-tag">MySQL</span>
+                  <span className="tech-tag">Ecommerce</span>
                 </div>
               </div>
             </div>
@@ -374,24 +525,25 @@ export default function Portfolio() {
               <div className="project-content">
                 <h3>Business Automation Suite</h3>
                 <p>
-                  Intelligent automation system streamlining repetitive business
-                  processes, reducing manual effort and human error through intelligent
-                  scripting.
+                  Python-based automation system for streamlining repetitive business processes.
+                  Reduces manual effort and human error through intelligent scripting for
+                  email automation, data imports, and file management.
                 </p>
 
                 <div className="challenge-box">
                   <strong>Challenge</strong>
                   <p>
                     Eliminate time-consuming manual processes affecting team productivity
-                    and data accuracy.
+                    and data accuracy in business operations.
                   </p>
                 </div>
 
                 <div className="challenge-box">
                   <strong>Solution</strong>
                   <p>
-                    Developed Python-based automation handling email distribution, data
-                    imports, and bulk file downloads with comprehensive logging.
+                    Developed Python automation scripts handling email distribution, data
+                    imports, bulk file downloads, and comprehensive logging to improve
+                    operational efficiency and reduce manual errors.
                   </p>
                 </div>
 
@@ -399,6 +551,8 @@ export default function Portfolio() {
                   <span className="tech-tag">Python</span>
                   <span className="tech-tag">Automation</span>
                   <span className="tech-tag">Data Processing</span>
+                  <span className="tech-tag">Scripting</span>
+                  <span className="tech-tag">Efficiency Tools</span>
                 </div>
               </div>
             </div>
@@ -416,6 +570,8 @@ export default function Portfolio() {
                 <ul>
                   <li>Python</li>
                   <li>JavaScript</li>
+                  <li>SQL</li>
+                  <li>PHP</li>
                 </ul>
               </div>
 
@@ -424,7 +580,7 @@ export default function Portfolio() {
                 <ul>
                   <li>React.js</li>
                   <li>Next.js</li>
-                  <li>Tailwind CSS</li>
+                  <li>JavaScript</li>
                 </ul>
               </div>
 
@@ -432,8 +588,9 @@ export default function Portfolio() {
                 <h3>Backend</h3>
                 <ul>
                   <li>Django</li>
-                  <li>Django REST</li>
                   <li>Flask</li>
+                  <li>FastAPI</li>
+                  <li>Laravel</li>
                 </ul>
               </div>
 
@@ -442,25 +599,27 @@ export default function Portfolio() {
                 <ul>
                   <li>PostgreSQL</li>
                   <li>MySQL</li>
-                  <li>Data Modeling</li>
+                  <li>SQLAlchemy</li>
+                </ul>
+              </div>
+
+              <div className="skill-box">
+                <h3>Tools & APIs</h3>
+                <ul>
+                  <li>Git</li>
+                  <li>REST API</li>
+                  <li>YOLO</li>
+                  <li>Automation</li>
                 </ul>
               </div>
 
               <div className="skill-box">
                 <h3>Specializations</h3>
                 <ul>
-                  <li>System Design</li>
+                  <li>System Architecture</li>
                   <li>Real-time Systems</li>
-                  <li>API Architecture</li>
-                </ul>
-              </div>
-
-              <div className="skill-box">
-                <h3>Core Competencies</h3>
-                <ul>
-                  <li>Full Stack Dev</li>
-                  <li>Problem Solving</li>
-                  <li>Code Architecture</li>
+                  <li>Full Stack Development</li>
+                  <li>Process Automation</li>
                 </ul>
               </div>
             </div>
@@ -522,16 +681,37 @@ export default function Portfolio() {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
+            <button 
+              onClick={handleDownloadCV}
+              className="cta-button-secondary"
+              aria-label="Download CV"
+            >
+              <span>Download CV</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
           </div>
         </section>
       </div>
 
       {/* Footer */}
       <footer>
-        <p>
-          &copy; 2026 Bokade Mehul. Crafted with precision, passion, and a love for
-          elegant code.
-        </p>
+        <div className="footer-content">
+          <p>
+            &copy; 2026 Bokade Mehul. Crafted with precision, passion, and a love for
+            elegant code.
+          </p>
+          <div className="footer-links">
+            <a href="https://linkedin.com/in/Mehul1940" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span>•</span>
+            <a href="mailto:bokdemehul870@gmail.com">Email</a>
+            <span>•</span>
+            <button onClick={handleDownloadCV}>Download CV</button>
+          </div>
+        </div>
       </footer>
     </>
   );

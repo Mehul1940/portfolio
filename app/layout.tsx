@@ -1,3 +1,4 @@
+// layout.tsx (unchanged)
 import type { Metadata } from 'next';
 import './globals.css';
 

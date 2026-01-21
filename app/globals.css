@@ -1,3 +1,4 @@
+/* globals.css (updated) */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Caveat:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 * {
@@ -16,6 +17,7 @@
   --text-muted: #94a3b8;
   --neon-pink: #ec4899;
   --neon-orange: #f97316;
+  --accent-green: #10b981;
 }
 
 html {
@@ -154,7 +156,7 @@ body {
   }
 }
 
-/* ===== NAVIGATION WITH TOGGLE ===== */
+/* ===== NAVIGATION WITH CV BUTTON ===== */
 nav {
   position: fixed;
   top: 0;
@@ -199,8 +201,9 @@ nav .logo {
 /* Navigation Menu */
 nav ul {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   list-style: none;
+  align-items: center;
 }
 
 nav a {
@@ -229,6 +232,29 @@ nav a:hover {
 
 nav a:hover::before {
   width: 100%;
+}
+
+/* CV Button in Navigation */
+.nav-cv-button {
+  background: linear-gradient(135deg, var(--accent-green), #22c55e);
+  color: var(--primary-dark);
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-cv-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
 }
 
 /* ===== HAMBURGER MENU ===== */
@@ -306,21 +332,6 @@ nav a:hover::before {
   }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
-.mobile-menu.hide {
-  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
 .mobile-menu li {
   list-style: none;
 }
@@ -353,6 +364,30 @@ nav a:hover::before {
 
 .mobile-menu a:hover::before {
   width: 100%;
+}
+
+/* Mobile CV Button */
+.mobile-cv-button {
+  background: linear-gradient(135deg, var(--accent-green), #22c55e);
+  color: var(--primary-dark);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.mobile-cv-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
 }
 
 .container {
@@ -467,63 +502,11 @@ nav a:hover::before {
   }
 }
 
-.anime-lines {
-  position: relative;
-  height: 30px;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
-
-.anime-line {
-  position: absolute;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-cyan),
-    var(--accent-blue),
-    var(--accent-purple)
-  );
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-}
-
-.line-1 {
-  width: 100px;
-  left: 0;
-  animation: lineSlide 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
-}
-
-.line-2 {
-  width: 80px;
-  left: 120px;
-  animation: lineSlide 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
-}
-
-.line-3 {
-  width: 60px;
-  left: 220px;
-  animation: lineSlide 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
-}
-
-@keyframes lineSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) scaleX(0);
-    filter: blur(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) scaleX(1);
-    filter: blur(0);
-  }
-}
-
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero h1 span {
@@ -542,6 +525,28 @@ nav a:hover::before {
   animation: titleReveal 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+.hero h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.hero h2 span {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--neon-pink) 0%,
+    var(--neon-orange) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 0.1em;
+  opacity: 0;
+  animation: titleReveal 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
 .hero h1 span:nth-child(1) {
   animation-delay: 0.25s;
 }
@@ -550,8 +555,12 @@ nav a:hover::before {
   animation-delay: 0.4s;
 }
 
-.hero h1 span:nth-child(3) {
+.hero h2 span:nth-child(1) {
   animation-delay: 0.55s;
+}
+
+.hero h2 span:nth-child(2) {
+  animation-delay: 0.7s;
 }
 
 @keyframes titleReveal {
@@ -611,6 +620,10 @@ nav a:hover::before {
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn::before {
@@ -655,6 +668,48 @@ nav a:hover::before {
   background: rgba(6, 182, 212, 0.15);
   transform: translateY(-6px);
   box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.2), 0 0 40px rgba(6, 182, 212, 0.4);
+}
+
+.btn-tertiary {
+  background: transparent;
+  color: var(--accent-green);
+  border: 2.5px solid var(--accent-green);
+  box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.btn-tertiary:hover {
+  background: rgba(16, 185, 129, 0.15);
+  transform: translateY(-6px);
+  box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.2), 0 0 40px rgba(16, 185, 129, 0.4);
+}
+
+.hero-social {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s forwards;
+}
+
+.hero-social a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1.5px solid rgba(6, 182, 212, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-social a:hover {
+  background: rgba(6, 182, 212, 0.2);
+  transform: translateY(-5px);
+  color: var(--text-light);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
 }
 
 /* 3D Space Doll */
@@ -1045,7 +1100,7 @@ nav a:hover::before {
   border: 2px solid rgba(236, 72, 153, 0.6);
 }
 
-/* Story Section */
+/* Story Section (Experience) */
 .story-section {
   padding: 120px 2rem;
   position: relative;
@@ -1184,7 +1239,7 @@ nav a:hover::before {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -1213,15 +1268,41 @@ nav a:hover::before {
 
 .story-title {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--text-light);
   font-weight: 800;
+}
+
+.story-subtitle {
+  color: var(--accent-purple);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .story-description {
   color: var(--text-muted);
   line-height: 1.8;
   font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.story-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.story-tech span {
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--accent-cyan);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(6, 182, 212, 0.2);
 }
 
 /* Projects Section */
@@ -1256,6 +1337,9 @@ nav a:hover::before {
 }
 .project:nth-child(3).in-view {
   animation-delay: 0.5s;
+}
+.project:nth-child(4).in-view {
+  animation-delay: 0.7s;
 }
 
 @keyframes projectSlideIn {
@@ -1759,6 +1843,10 @@ nav a:hover::before {
 .contact-cta {
   margin-top: 3rem;
   opacity: 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .contact-cta.in-view {
@@ -1787,6 +1875,8 @@ nav a:hover::before {
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 60px rgba(6, 182, 212, 0.5);
+  border: none;
+  cursor: pointer;
 }
 
 .cta-button-new::before {
@@ -1822,6 +1912,60 @@ nav a:hover::before {
   transform: translateX(8px);
 }
 
+.cta-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 4rem;
+  background: transparent;
+  color: var(--accent-green);
+  border: 3px solid var(--accent-green);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cta-button-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(16, 185, 129, 0.3),
+    transparent
+  );
+  transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cta-button-secondary:hover::before {
+  left: 100%;
+}
+
+.cta-button-secondary:hover {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 40px 120px rgba(16, 185, 129, 0.4);
+}
+
+.cta-button-secondary svg {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cta-button-secondary:hover svg {
+  transform: translateX(8px);
+}
+
 /* Footer */
 footer {
   border-top: 1.5px solid rgba(6, 182, 212, 0.15);
@@ -1832,9 +1976,45 @@ footer {
   background: rgba(6, 182, 212, 0.03);
 }
 
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 footer p {
   opacity: 0;
   animation: fadeInUp 0.8s ease 0.5s forwards;
+  margin-bottom: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.7s forwards;
+}
+
+.footer-links a,
+.footer-links button {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links button:hover {
+  color: var(--accent-blue);
+}
+
+.footer-links span {
+  color: var(--text-muted);
 }
 
 /* ============================================================
@@ -1916,6 +2096,11 @@ footer p {
 
   .hero h1 {
     font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
     margin-bottom: 1.5rem;
   }
 
@@ -1967,6 +2152,11 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .contact-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
   nav ul {
     display: none;
   }
@@ -2011,14 +2201,14 @@ footer p {
     height: 10px;
   }
 
-  .anime-lines {
-    height: 25px;
-    margin-bottom: 1.5rem;
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
 
-  .hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
+  .hero h2 {
+    font-size: 1.8rem;
     margin-bottom: 1.2rem;
   }
 
@@ -2041,12 +2231,19 @@ footer p {
     text-align: center;
   }
 
-  .story-section {
+  .hero-social {
+    justify-content: center;
+  }
+
+  .story-section,
+  .projects-section,
+  .skills-section,
+  .contact-section {
     padding: 80px 1.2rem;
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-bottom: 2rem;
   }
 
@@ -2072,6 +2269,11 @@ footer p {
 
   .story-title {
     font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .story-subtitle {
+    font-size: 0.9rem;
     margin-bottom: 0.8rem;
   }
 
@@ -2079,8 +2281,9 @@ footer p {
     font-size: 0.85rem;
   }
 
-  .projects-section {
-    padding: 80px 1.2rem;
+  .story-tech span {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
   }
 
   .projects-container {
@@ -2090,12 +2293,6 @@ footer p {
   .project {
     grid-template-columns: 1fr;
     gap: 2rem;
-    opacity: 0;
-    animation: projectSlideIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-
-  .project:nth-child(even) {
-    direction: ltr;
   }
 
   .project-visual {
@@ -2105,11 +2302,10 @@ footer p {
 
   .project-icon {
     font-size: 4rem;
-    animation: iconBounce 3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
   }
 
   .project-content h3 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
   }
 
@@ -2144,7 +2340,6 @@ footer p {
   }
 
   .skills-section {
-    padding: 80px 1.2rem;
     margin: 40px 0;
   }
 
@@ -2155,8 +2350,6 @@ footer p {
 
   .skill-box {
     padding: 1.5rem;
-    opacity: 0;
-    animation: skillCardIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
 
   .skill-box h3 {
@@ -2175,16 +2368,12 @@ footer p {
     margin-right: 0.6rem;
   }
 
-  .contact-section {
-    padding: 80px 1.2rem;
-  }
-
   .contact-header {
     margin-bottom: 3rem;
   }
 
   .contact-section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
   }
 
@@ -2194,16 +2383,13 @@ footer p {
   }
 
   .contact-tagline {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
   }
 
   .contact-card {
@@ -2232,20 +2418,21 @@ footer p {
 
   .contact-cta {
     margin-top: 2rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+    gap: 1rem;
   }
 
-  .cta-button-new {
+  .cta-button-new,
+  .cta-button-secondary {
     padding: 1rem 2.5rem;
     font-size: 0.9rem;
     letter-spacing: 0.8px;
     gap: 0.8rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 100%;
+    max-width: 300px;
   }
 
-  .cta-button-new svg {
+  .cta-button-new svg,
+  .cta-button-secondary svg {
     width: 18px;
     height: 18px;
   }
@@ -2253,6 +2440,11 @@ footer p {
   footer {
     padding: 2.5rem 1.2rem;
     font-size: 0.85rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   nav ul {
@@ -2365,17 +2557,19 @@ footer p {
     gap: 0.5rem;
   }
 
-  .anime-lines {
-    display: none;
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
 
-  .hero h1 {
-    font-size: 1.8rem;
-    line-height: 1.2;
+  .hero h2 {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  .hero h1 span {
+  .hero h1 span,
+  .hero h2 span {
     display: block;
     margin-right: 0;
   }
@@ -2398,17 +2592,28 @@ footer p {
     letter-spacing: 0.5px;
   }
 
-  .story-section {
+  .hero-social {
+    gap: 1rem;
+  }
+
+  .hero-social a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .story-section,
+  .projects-section,
+  .skills-section,
+  .contact-section {
     padding: 60px 1rem;
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
 
   .story-grid {
-    grid-template-columns: 1fr;
     gap: 1.2rem;
   }
 
@@ -2438,16 +2643,27 @@ footer p {
 
   .story-title {
     font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .story-subtitle {
+    font-size: 0.85rem;
     margin-bottom: 0.6rem;
   }
 
   .story-description {
     font-size: 0.8rem;
     line-height: 1.5;
+    margin-bottom: 1rem;
   }
 
-  .projects-section {
-    padding: 60px 1rem;
+  .story-tech {
+    margin-top: 1rem;
+  }
+
+  .story-tech span {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
   }
 
   .projects-container {
@@ -2455,7 +2671,6 @@ footer p {
   }
 
   .project {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -2504,12 +2719,10 @@ footer p {
   }
 
   .skills-section {
-    padding: 60px 1rem;
     margin: 30px 0;
   }
 
   .skills-grid {
-    grid-template-columns: 1fr;
     gap: 1.2rem;
   }
 
@@ -2531,16 +2744,8 @@ footer p {
     font-size: 0.8rem;
   }
 
-  .contact-section {
-    padding: 60px 1rem;
-  }
-
-  .contact-header {
-    margin-bottom: 2rem;
-  }
-
   .contact-section h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin-bottom: 0.8rem;
   }
 
@@ -2555,7 +2760,6 @@ footer p {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
     gap: 1.2rem;
     margin-bottom: 2rem;
   }
@@ -2592,33 +2796,28 @@ footer p {
     font-size: 0.75rem;
   }
 
-  .cta-button-new {
+  .cta-button-new,
+  .cta-button-secondary {
     padding: 0.9rem 2rem;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
     gap: 0.6rem;
   }
 
-  .cta-button-new svg {
+  .cta-button-new svg,
+  .cta-button-secondary svg {
     width: 16px;
     height: 16px;
   }
 
-  .cta-button-new:hover {
+  .cta-button-new:hover,
+  .cta-button-secondary:hover {
     transform: translateY(-8px) scale(1.03);
   }
 
   footer {
     padding: 2rem 1rem;
     font-size: 0.8rem;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
   }
 
   .mobile-menu {
@@ -2639,6 +2838,10 @@ footer p {
 
   .hero h1 {
     font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
   }
 
   .section-title {
