@@ -80,7 +80,7 @@ export default function Portfolio() {
       });
     });
 
-    // Mouse tracking for doll parallax (only on larger screens)
+    // Mouse tracking for orb parallax (only on larger screens)
     const handleMouseMove = (e: MouseEvent) => {
       if (isMobile) return; // Disable on mobile
 
@@ -210,41 +210,29 @@ export default function Portfolio() {
         )}
       </nav>
 
-      {/* Hero Section - Doll Left, Content Right */}
+      {/* Hero Section - Holographic Orb Left, Content Right */}
       <section className="hero">
-        {/* 3D Space Character on Left - Hidden on Mobile */}
+        {/* 3D Holographic Tech Orb on Left - Hidden on Mobile */}
         {!isMobile && (
           <div className="hero-visual">
             <div className="doll-aura"></div>
             <div className="space-doll">
-              {/* Head */}
-              <div className="doll-head">
-                <div className="doll-eye doll-eye-left"></div>
-                <div className="doll-eye doll-eye-right"></div>
-                <div className="doll-mouth"></div>
-              </div>
-
-              {/* Body */}
+              {/* Core components for holographic effect */}
               <div className="doll-body">
                 <div className="doll-chest-light"></div>
               </div>
-
-              {/* Left Arm */}
+              
+              {/* Hidden doll parts - only CSS is used for the orb effect */}
+              <div className="doll-head"></div>
               <div className="doll-arm doll-arm-left">
                 <div className="doll-hand"></div>
               </div>
-
-              {/* Right Arm */}
               <div className="doll-arm doll-arm-right">
                 <div className="doll-hand"></div>
               </div>
-
-              {/* Left Leg */}
               <div className="doll-leg doll-leg-left">
                 <div className="doll-foot"></div>
               </div>
-
-              {/* Right Leg */}
               <div className="doll-leg doll-leg-right">
                 <div className="doll-foot"></div>
               </div>
@@ -516,46 +504,6 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-
-            {/* Automation Project */}
-            <div className="project">
-              <div className="project-visual">
-                <div className="project-icon">⚙️</div>
-              </div>
-              <div className="project-content">
-                <h3>Business Automation Suite</h3>
-                <p>
-                  Python-based automation system for streamlining repetitive business processes.
-                  Reduces manual effort and human error through intelligent scripting for
-                  email automation, data imports, and file management.
-                </p>
-
-                <div className="challenge-box">
-                  <strong>Challenge</strong>
-                  <p>
-                    Eliminate time-consuming manual processes affecting team productivity
-                    and data accuracy in business operations.
-                  </p>
-                </div>
-
-                <div className="challenge-box">
-                  <strong>Solution</strong>
-                  <p>
-                    Developed Python automation scripts handling email distribution, data
-                    imports, bulk file downloads, and comprehensive logging to improve
-                    operational efficiency and reduce manual errors.
-                  </p>
-                </div>
-
-                <div className="tech-list">
-                  <span className="tech-tag">Python</span>
-                  <span className="tech-tag">Automation</span>
-                  <span className="tech-tag">Data Processing</span>
-                  <span className="tech-tag">Scripting</span>
-                  <span className="tech-tag">Efficiency Tools</span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -700,16 +648,62 @@ export default function Portfolio() {
       {/* Footer */}
       <footer>
         <div className="footer-content">
-          <p>
-            &copy; 2026 Bokade Mehul. Crafted with precision, passion, and a love for
-            elegant code.
-          </p>
-          <div className="footer-links">
-            <a href="https://www.linkedin.com/in/bokde-mehul-230b3b350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span>•</span>
-            <a href="mailto:bokdemehul870@gmail.com">Email</a>
-            <span>•</span>
-            <button onClick={handleDownloadCV}>Download CV</button>
+          {/* Brand Section */}
+          <div className="footer-brand">
+            <h3>Bokade</h3>
+            <p>
+              Full Stack Developer crafting elegant solutions for complex problems. 
+              Building scalable systems and meaningful digital experiences.
+            </p>
+            <div className="footer-social">
+              <a href="mailto:bokdemehul870@gmail.com" aria-label="Email" title="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+              <a href="https://github.com/Mehul1940" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.646 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.376.202 2.393.1 2.646.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.523 2 12 2z"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/bokde-mehul-230b3b350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#story">My Journey</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><button onClick={handleDownloadCV} style={{ all: 'unset', cursor: 'pointer', font: 'inherit' }}>Download CV</button></li>
+              <li><a href="https://github.com/Mehul1940" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/bokde-mehul-230b3b350" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="mailto:bokdemehul870@gmail.com">Get in Touch</a></li>
+            </ul>
+          </div>
+
+          {/* Footer Bottom */}
+          <div className="footer-bottom">
+            <p>
+              &copy; 2026 <strong>Bokade Mehul</strong>. Crafted with precision and passion.
+            </p>
           </div>
         </div>
       </footer>
