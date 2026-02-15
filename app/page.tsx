@@ -411,14 +411,14 @@ export default function Portfolio() {
                   <p>
                     Developed a Django-based application with JavaScript frontend and MySQL database.
                     Implemented automated notifications, financial reports, and secure role-based
-                    authentication for different user types.
+                    authentication for different user types. Improved operational efficiency by 60%.
                   </p>
                 </div>
 
                 <div className="tech-list">
                   <span className="tech-tag">Django</span>
                   <span className="tech-tag">JavaScript</span>
-                  <span className="tech-tag">MySQL</span>
+                  <span className="tech-tag">Postgres</span>
                   <span className="tech-tag">Role-based Auth</span>
                   <span className="tech-tag">Automation</span>
                 </div>
@@ -451,7 +451,7 @@ export default function Portfolio() {
                   <p>
                     Built using Django backend with JavaScript frontend for seamless user experience.
                     Implemented real-time order updates, menu customization, and comprehensive
-                    admin dashboard for restaurant management.
+                    admin dashboard. Reduced processing time by 45%.
                   </p>
                 </div>
 
@@ -465,42 +465,43 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Ecommerce Site */}
+            {/* Campus Project */}
             <div className="project">
               <div className="project-visual">
-                <div className="project-icon">🛒</div>
+                <div className="project-icon">🎓</div>
               </div>
               <div className="project-content">
-                <h3>Relevance - Ecommerce Platform</h3>
+                <h3>Campus - University Smart Services</h3>
                 <p>
-                  Laravel-based ecommerce web application with user registration, authentication,
-                  and core ecommerce functionality. Features include product catalog, shopping cart,
-                  and user management system.
+                  Comprehensive all-in-one application for university smart services including cleanliness 
+                  management, lost & found reporting, canteen ordering, and event notifications. Streamlines 
+                  campus operations and improves student experience.
                 </p>
 
                 <div className="challenge-box">
                   <strong>Challenge</strong>
                   <p>
-                    Develop a robust ecommerce platform with secure user authentication,
-                    product management, and smooth shopping experience.
+                    Create an integrated platform that solves multiple campus issues: long food queues, 
+                    inefficient lost item reporting, cleanliness management, and event communication.
                   </p>
                 </div>
 
                 <div className="challenge-box">
                   <strong>Solution</strong>
                   <p>
-                    Created a Laravel application with PHP, JavaScript, and MySQL database.
-                    Implemented secure authentication, product catalog management, and
-                    essential ecommerce pages including Home, About, Services, and Contact.
+                    Built a Django backend with Bootstrap frontend and MySQL database. Implemented pre-ordering 
+                    functionality allowing students to order food before arriving at canteen, automated incident 
+                    reporting system that routes complaints to appropriate authorities, and centralized event 
+                    notification system.
                   </p>
                 </div>
 
                 <div className="tech-list">
-                  <span className="tech-tag">Laravel</span>
-                  <span className="tech-tag">PHP</span>
-                  <span className="tech-tag">JavaScript</span>
+                  <span className="tech-tag">Django</span>
+                  <span className="tech-tag">Bootstrap</span>
                   <span className="tech-tag">MySQL</span>
-                  <span className="tech-tag">Ecommerce</span>
+                  <span className="tech-tag">Smart Services</span>
+                  <span className="tech-tag">Automation</span>
                 </div>
               </div>
             </div>
@@ -519,7 +520,6 @@ export default function Portfolio() {
                   <li>Python</li>
                   <li>JavaScript</li>
                   <li>SQL</li>
-                  <li>PHP</li>
                 </ul>
               </div>
 
@@ -528,7 +528,7 @@ export default function Portfolio() {
                 <ul>
                   <li>React.js</li>
                   <li>Next.js</li>
-                  <li>JavaScript</li>
+                  <li>Bootstrap</li>
                 </ul>
               </div>
 
@@ -538,7 +538,6 @@ export default function Portfolio() {
                   <li>Django</li>
                   <li>Flask</li>
                   <li>FastAPI</li>
-                  <li>Laravel</li>
                 </ul>
               </div>
 
@@ -556,7 +555,6 @@ export default function Portfolio() {
                 <ul>
                   <li>Git</li>
                   <li>REST API</li>
-                  <li>YOLO</li>
                   <li>Automation</li>
                 </ul>
               </div>
@@ -567,7 +565,6 @@ export default function Portfolio() {
                   <li>System Architecture</li>
                   <li>Real-time Systems</li>
                   <li>Full Stack Development</li>
-                  <li>Process Automation</li>
                 </ul>
               </div>
             </div>
@@ -667,7 +664,7 @@ export default function Portfolio() {
                   <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.646 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.376.202 2.393.1 2.646.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.523 2 12 2z"/>
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/in/bokde-mehul-230b3b350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <a href="https://www.linkedin.com/in/bokde-mehul-230b3b350" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
